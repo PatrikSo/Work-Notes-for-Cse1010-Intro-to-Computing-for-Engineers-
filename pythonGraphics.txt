@@ -1,0 +1,29 @@
+from graphics import *
+
+def shapeFun():
+    win = GraphWin()
+    shape = Rectangle(Point(50,50), Point(50+20,50+20))
+    shape.setOutline("red")
+    shape.setFill("blue")
+    shape.draw(win)
+    for i in range(10):
+        p = win.getMouse()
+        c = shape.getCenter()
+        dx = p.getX() - c.getX()
+        dy = p.getY() - c.getY()
+        shapeClone = shape.clone()
+        shapeClone.move(dx,dy)
+        shapeClone.draw(win)
+        shape = shapeClone
+    win.close()
+
+def face():
+    win = GraphWin("Face", 400, 400)
+    leftEye = Circle(Point(50,50), 20)
+    rightEye = Circle(Point(200,50), 20)
+    mouth = Rectangle(Point(150,150),Point(150+20,150+20))
+
+    leftEye.draw(win)
+    rightEye.draw(win)
+    mouth.draw(win)
+face() 
